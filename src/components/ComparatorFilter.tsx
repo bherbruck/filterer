@@ -25,7 +25,7 @@ export const ComparatorFilter: FC<ComparatorFilterProps> = ({
   return (
     <div className="flex w-full flex-row gap-2">
       <input
-        className="input w-24 font-mono flex-1"
+        className="input w-24 flex-1 font-mono"
         onChange={(e) =>
           setComparator({
             ...comparator,
@@ -42,7 +42,7 @@ export const ComparatorFilter: FC<ComparatorFilterProps> = ({
         {comparator.fn.name}
       </Dropdown>
       <input
-        className="input w-24 font-mono flex-1"
+        className="input w-24 flex-1 font-mono"
         onChange={(e) =>
           setComparator({
             ...comparator,
