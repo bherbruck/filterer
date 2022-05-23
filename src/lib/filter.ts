@@ -34,12 +34,12 @@ export const COMPARATOR: Record<string, ComparatorFunciton<any>> = {
   greaterThanOrEqual: (x, y) => x >= y,
   lessThan: (x, y) => x < y,
   lessThanOrEqual: (x, y) => x <= y,
-  in: (x, y) => y.includes(x),
-  notIn: (x, y) => !y.includes(x),
+  in: (x, y) => Array.isArray(y) && y.includes(x),
+  notIn: (x, y) => Array.isArray(y) && !y.includes(x),
   startsWith: (x, y) => x.startsWith(y),
-  endsWith: (x, y) => x.endsWith(y),
-  contains: (x, y) => x.includes(y),
-  notContains: (x, y) => !x.includes(y),
+  endsWith: (x, y) => String(x).endsWith(y),
+  contains: (x, y) => String(x).includes(y),
+  notContains: (x, y) => !String(x).includes(y),
 }
 
 export const OPERATOR: Record<string, OperatorFunction> = {
