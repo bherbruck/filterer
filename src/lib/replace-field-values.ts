@@ -1,5 +1,6 @@
 import { Field } from '../components/FieldEditor'
 import { Filter } from './filter'
+import { parseValue } from './parse-value'
 
 export const isInBrackets = (str: string) =>
   str.startsWith('{') && str.endsWith('}') // TODO: allow custom brackets
@@ -18,8 +19,8 @@ export const replaceFieldValues = (
     if (filter.filters)
       return { ...filter, filters: replaceFieldValues(fields, filter.filters) }
     const { x, y } = filter
-    const xValue = getFieldValue(x as string, fields)
-    const yValue = getFieldValue(y as string, fields)
+    const xValue = parseValue(getFieldValue(x as string, fields))
+    const yValue = parseValue(getFieldValue(y as string, fields))
     return { ...filter, x: xValue, y: yValue }
   })
 
