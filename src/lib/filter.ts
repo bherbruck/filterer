@@ -36,7 +36,7 @@ export const COMPARATOR: Record<string, ComparatorFunciton<any>> = {
   lessThanOrEqual: (x, y) => x <= y,
   in: (x, y) => Array.isArray(y) && y.includes(x),
   notIn: (x, y) => Array.isArray(y) && !y.includes(x),
-  startsWith: (x, y) => x.startsWith(y),
+  startsWith: (x, y) => String(x).startsWith(String(y)),
   endsWith: (x, y) => String(x).endsWith(y),
   contains: (x, y) => String(x).includes(y),
   notContains: (x, y) => !String(x).includes(y),
